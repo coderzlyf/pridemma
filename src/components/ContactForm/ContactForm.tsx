@@ -429,13 +429,16 @@ const ContactForm = () => {
                 inputMode="numeric"
                 value={formValues.number}
                 onChange={(e) => {
-                  setFormValues({ ...formValues, number: e.target.value });
-                  if (touched.number) validateField("number", e.target.value);
+                  const onlyDigits = e.target.value.replace(/\D/g, ""); // remove non-digits
+                  setFormValues({ ...formValues, number: onlyDigits });
+
+                  if (touched.number) validateField("number", onlyDigits);
                 }}
                 onBlur={() => {
                   setTouched({ ...touched, number: true });
                   validateField("number", formValues.number);
                 }}
+                maxLength={10}
                 className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400"
               />
               {touched.number && errors.number && (
