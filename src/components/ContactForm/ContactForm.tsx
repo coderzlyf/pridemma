@@ -1,7 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 import { useAppSelector } from "../../hooks";
 import { useLocation } from "react-router-dom";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -50,77 +50,21 @@ const itemVariants: Variants = {
   },
 };
 
+type FormValues = {
+  name: string;
+  number: string;
+  subject: string;
+  message: string;
+};
+
 const ContactForm = () => {
-  const [touched, setTouched] = useState({
-    name: false,
-    number: false,
-    subject: false,
-    message: false,
-  });
-
-  const [errors, setErrors] = useState({
-    name: "",
-    number: "",
-    subject: "",
-    message: "",
-  });
-
-  const [isValid, setIsValid] = useState(false);
-
-  const validateForm = (formValues: {
-    name: string;
-    number: string;
-    subject: string;
-    message: string;
-  }) => {
-    const newErrors = {
-      name: "",
-      number: "",
-      subject: "",
-      message: "",
-    };
-
-    if (!formValues.name.trim()) {
-      newErrors.name = "Full name is required";
-    }
-
-    if (!formValues.number.trim()) {
-      newErrors.number = "Phone number is required";
-    } else if (!/^[6-9]\d{9}$/.test(formValues.number)) {
-      newErrors.number = "Enter a valid 10-digit phone number";
-    }
-
-    if (!formValues.subject.trim()) {
-      newErrors.subject = "Subject is required";
-    }
-
-    if (!formValues.message.trim()) {
-      newErrors.message = "Message is required";
-    }
-
-    setErrors(newErrors);
-
-    const formIsValid = Object.values(newErrors).every((err) => err === "");
-    setIsValid(formIsValid);
-
-    return formIsValid;
-  };
-
   const data = useAppSelector((state: any) => state.config.data);
   const contactForm = data?.contactUs;
-
-  const location = useLocation();
-
-  const formRef = useRef<HTMLDivElement>(null);
-  const nameInputRef = useRef<HTMLInputElement>(null);
-
-  const [subject, setSubject] = useState("");
 
   const handleCopy = (text: string) => {
     if (navigator?.clipboard?.writeText) {
       navigator.clipboard.writeText(text);
     } else {
-      // Fallback for unsupported browsers
       const textarea = document.createElement("textarea");
       textarea.value = text;
       document.body.appendChild(textarea);
@@ -130,15 +74,75 @@ const ContactForm = () => {
     }
   };
 
+  const location = useLocation();
+  const formRef = useRef<HTMLDivElement>(null);
+  const nameInputRef = useRef<HTMLInputElement>(null);
+
+  const WHATSAPP_NUMBER = "9745775901";
+
+  const [formValues, setFormValues] = useState<FormValues>({
+    name: "",
+    number: "",
+    subject: "",
+    message: "",
+  });
+
+  const [touched, setTouched] = useState({
+    name: false,
+    number: false,
+    subject: false,
+    message: false,
+  });
+
+  const [errors, setErrors] = useState<FormValues>({
+    name: "",
+    number: "",
+    subject: "",
+    message: "",
+  });
+
+  const [isValid, setIsValid] = useState(false);
+
+  // ---------------- VALIDATION ----------------
+
+  const validateField = (name: keyof FormValues, value: string) => {
+    let error = "";
+
+    if (!value.trim()) {
+      error = `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
+    } else if (name === "number") {
+      if (!/^[6-9]\d{9}$/.test(value)) {
+        error = "Enter a valid 10-digit phone number";
+      }
+    }
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: error,
+    }));
+  };
+
+  useEffect(() => {
+    const hasErrors = Object.values(errors).some((err) => err !== "");
+    const hasEmptyFields = Object.values(formValues).some(
+      (val) => val.trim() === ""
+    );
+
+    setIsValid(!hasErrors && !hasEmptyFields);
+  }, [errors, formValues]);
+
+  // ---------------- AUTO SCROLL ----------------
+
   useLayoutEffect(() => {
     if (
       location.pathname === "/GetFreeTrial" ||
       location.pathname === "/getFreeTrial"
     ) {
-      // Prefill subject first
-      setSubject("Regarding for free session");
+      setFormValues((prev) => ({
+        ...prev,
+        subject: "Regarding for free session",
+      }));
 
-      // Small delay to ensure layout + framer animation mount
       requestAnimationFrame(() => {
         formRef.current?.scrollIntoView({
           behavior: "smooth",
@@ -147,26 +151,24 @@ const ContactForm = () => {
 
         setTimeout(() => {
           nameInputRef.current?.focus();
-        }, 700); // wait until smooth scroll ends
+        }, 700);
       });
     }
   }, [location.pathname]);
 
-  const WHATSAPP_NUMBER = "9745775901";
+  // ---------------- SUBMIT ----------------
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
+    setTouched({
+      name: true,
+      number: true,
+      subject: true,
+      message: true,
+    });
 
-    const formValues = {
-      name: String(formData.get("full-name") || ""),
-      number: String(formData.get("number") || ""),
-      subject: String(formData.get("subject") || ""),
-      message: String(formData.get("message") || ""),
-    };
-
-    if (!validateForm(formValues)) return;
+    if (!isValid) return;
 
     const messageHeader = "!!! New Member Inquiry !!!";
 
@@ -179,47 +181,25 @@ const ContactForm = () => {
     );
 
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-
     window.open(whatsappUrl, "_blank");
 
-    e.target.reset();
-    setSubject("");
-    setIsValid(false);
+    // Reset form
+    setFormValues({
+      name: "",
+      number: "",
+      subject: "",
+      message: "",
+    });
+
+    setTouched({
+      name: false,
+      number: false,
+      subject: false,
+      message: false,
+    });
   };
 
-  // const handleSubmit = (e: any) => {
-  //   e.preventDefault();
-
-  //   // 2. Extract values using FormData (cleaner than multiple refs)
-  //   const formData = new FormData(e.target);
-  //   const name = formData.get("full-name");
-  //   const number = formData.get("number");
-  //   const subject = formData.get("subject");
-  //   const message = formData.get("message");
-
-  //   const messageHeader = "!!! New Member Inquiry !!!";
-
-  //   // 3. Format the message for WhatsApp
-  //   const text = encodeURIComponent(
-  //     `*${messageHeader}*\n\n` +
-  //       `*Name:* ${name}\n` +
-  //       `*Number:* ${number}\n` +
-  //       `*Subject:* ${subject}\n` +
-  //       `*Message:* ${message}`
-  //   );
-
-  //   // 4. Open WhatsApp
-  //   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-
-  //   window.open(whatsappUrl, "_blank");
-
-  //   e.target.reset();
-
-  //   // 4. Clear React state if you're using controlled inputs (like your 'subject' state)
-  //   if (typeof setSubject === "function") {
-  //     setSubject("");
-  //   }
-  // };
+  // ---------------- RENDER ----------------
 
   return (
     <motion.div
@@ -401,121 +381,125 @@ const ContactForm = () => {
       </motion.div>
       <motion.div
         variants={rightColumnVariants}
-        id="contact-form"
         ref={formRef}
         className="bg-white p-8 rounded-lg shadow-sm border border-neutral-200 lg:sticky lg:top-24 h-fit"
       >
-        <form
-          onSubmit={handleSubmit}
-          onChange={(e) => {
-            const form = e.currentTarget;
-            const formData = new FormData(form);
-
-            validateForm({
-              name: String(formData.get("full-name") || ""),
-              number: String(formData.get("number") || ""),
-              subject: String(formData.get("subject") || ""),
-              message: String(formData.get("message") || ""),
-            });
-          }}
-          className="flex flex-col gap-6 text-left"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6 text-left">
           <motion.h3
             variants={itemVariants}
             className="text-2xl font-bold tracking-tight text-background-dark"
           >
             Send Us a Message
           </motion.h3>
+
+          {/* NAME + PHONE */}
           <motion.div
             variants={itemVariants}
             className="grid grid-cols-1 sm:grid-cols-2 gap-6"
           >
             <div>
-              <label
-                className="block text-sm font-medium text-background-dark/70 mb-2"
-                htmlFor="full-name"
-              >
+              <label className="block text-sm font-medium text-background-dark/70 mb-2">
                 Full Name
               </label>
               <input
-                className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400"
-                id="full-name"
                 ref={nameInputRef}
-                name="full-name"
-                placeholder="John Doe"
                 type="text"
-                onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
+                value={formValues.name}
+                onChange={(e) => {
+                  setFormValues({ ...formValues, name: e.target.value });
+                  if (touched.name) validateField("name", e.target.value);
+                }}
+                onBlur={() => {
+                  setTouched({ ...touched, name: true });
+                  validateField("name", formValues.name);
+                }}
+                className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400"
               />
               {touched.name && errors.name && (
                 <p className="text-red-500 text-xs mt-1">{errors.name}</p>
               )}
             </div>
+
             <div>
-              <label
-                className="block text-sm font-medium text-background-dark/70 mb-2"
-                htmlFor="number"
-              >
-                Phone number
+              <label className="block text-sm font-medium text-background-dark/70 mb-2">
+                Phone Number
               </label>
               <input
-                className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400 appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                id="number"
-                name="number"
-                placeholder="9876543210"
-                type="number"
-                onBlur={() => setTouched((prev) => ({ ...prev, number: true }))}
+                type="tel"
+                inputMode="numeric"
+                value={formValues.number}
+                onChange={(e) => {
+                  setFormValues({ ...formValues, number: e.target.value });
+                  if (touched.number) validateField("number", e.target.value);
+                }}
+                onBlur={() => {
+                  setTouched({ ...touched, number: true });
+                  validateField("number", formValues.number);
+                }}
+                className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400"
               />
               {touched.number && errors.number && (
                 <p className="text-red-500 text-xs mt-1">{errors.number}</p>
               )}
             </div>
           </motion.div>
+
+          {/* SUBJECT */}
           <motion.div variants={itemVariants}>
-            <label
-              className="block text-sm font-medium text-background-dark/70 mb-2"
-              htmlFor="subject"
-            >
+            <label className="block text-sm font-medium text-background-dark/70 mb-2">
               Subject
             </label>
             <input
-              className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400"
-              id="subject"
-              name="subject"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-              placeholder="Inquiry about classes"
               type="text"
-              onBlur={() => setTouched((prev) => ({ ...prev, subject: true }))}
+              value={formValues.subject}
+              onChange={(e) => {
+                setFormValues({ ...formValues, subject: e.target.value });
+                if (touched.subject) validateField("subject", e.target.value);
+              }}
+              onBlur={() => {
+                setTouched({ ...touched, subject: true });
+                validateField("subject", formValues.subject);
+              }}
+              className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400"
             />
             {touched.subject && errors.subject && (
               <p className="text-red-500 text-xs mt-1">{errors.subject}</p>
             )}
           </motion.div>
+
+          {/* MESSAGE */}
           <motion.div variants={itemVariants}>
-            <label
-              className="block text-sm font-medium text-background-dark/70 mb-2"
-              htmlFor="message"
-            >
+            <label className="block text-sm font-medium text-background-dark/70 mb-2">
               Your Message
             </label>
             <textarea
-              className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md p-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400"
-              id="message"
-              name="message"
-              placeholder="Hi, I'd like to know more about..."
-              rows={2}
-              onBlur={() => setTouched((prev) => ({ ...prev, message: true }))}
-            ></textarea>
+              rows={3}
+              value={formValues.message}
+              onChange={(e) => {
+                setFormValues({ ...formValues, message: e.target.value });
+                if (touched.message) validateField("message", e.target.value);
+              }}
+              onBlur={() => {
+                setTouched({ ...touched, message: true });
+                validateField("message", formValues.message);
+              }}
+              className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md px-4 py-2 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400"
+            />
             {touched.message && errors.message && (
               <p className="text-red-500 text-xs mt-1">{errors.message}</p>
             )}
           </motion.div>
+
           <motion.div variants={itemVariants}>
             <button
-              className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors"
-              type="submit"
+              disabled={!isValid}
+              className={`w-full h-12 rounded-lg font-bold ${
+                isValid
+                  ? "bg-primary text-white"
+                  : "bg-neutral-300 text-neutral-500 cursor-not-allowed"
+              }`}
             >
-              <span className="truncate">Send Message</span>
+              Send Message
             </button>
           </motion.div>
         </form>
