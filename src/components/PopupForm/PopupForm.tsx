@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-const PopupForm = forwardRef<HTMLDialogElement>((props, ref) => {
+const PopupForm = forwardRef<HTMLDialogElement>((_, ref) => {
   return (
     <dialog
       ref={ref}

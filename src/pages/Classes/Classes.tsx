@@ -1,7 +1,7 @@
 import BookYourTrialClasses from "../../components/BookYourTrialClasses/BookYourTrialClasses";
 import ClassSchedule from "../../components/ClassSchedule/ClassSchedule";
-import ClassesBtn from "../../components/ClassesBtn/ClassesBtn";
-import ClassesCard from "../../components/ClassesCard/ClassesCard";
+// import ClassesBtn from "../../components/ClassesBtn/ClassesBtn";
+// import ClassesCard from "../../components/ClassesCard/ClassesCard";
 import Hero from "../../components/Hero/Hero";
 import { useAppSelector } from "../../hooks";
 
