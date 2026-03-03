@@ -1,0 +1,513 @@
+{
+    "name": "Pride MMA and Fitness",
+    "logo": "/images/pridemmalogo.png",
+    "navigation": {
+        "menu": [
+            {
+                "name": "About Us",
+                "path": "/about",
+                "component": "AboutUs"
+            },
+            {
+                "name": "Classes",
+                "path": "/classes",
+                "component": "Classes"
+            },
+            {
+                "name": "Membership",
+                "path": "/membership",
+                "component": "Membership"
+            },
+            {
+                "name": "Upcoming Event",
+                "path": "/upcomingEvent",
+                "component": "UpcomingEvent"
+            },
+            {
+                "name": "Contact Us",
+                "path": "/contactus",
+                "component": "ContactUs"
+            }
+        ],
+        "cta": {
+            "label": "Get Free Trial",
+            "route": "contact",
+            "path": "/GetFreeTrial",
+            "component": "ContactUs"
+        }
+    },
+    "homePage": {
+        "hero": {
+            "title": "Unleash Your Potential",
+            "description": "More than a gym. We are a community built on respect, discipline, and pride.",
+            "bgImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCBNtFO9Z7bGdlClmlIESQLIjeyFtdFmRmGdg7K3ymIztDTrN3WAFvdwb254VD4NOCOhmzAK58MbHWFUotRLIbDb20kY-2TXeWGvEEgql2oj_zGiohxlqqapYGGmA_jokMlkNsZ8fZg7BLuJdzcqlJlcaUin8NPbXhtZttqPM7WTbbaAwnnsw0zpF43ft_Wbx339KR1pwzUESRP7LSfgo4DVX0bEqIj5Og9lfC5rnTh2n9fXDDqR77QtGw0_3TxzeOtDYc5DZbZoEI",
+            "primary": {
+                "name": "View Classes",
+                "route": "/classes"
+            },
+            "secondary": {
+                "name": "Get Your Free Pass",
+                "route": "/getFreeTrial"
+            }
+        },
+        "philosophy": {
+            "title": "Our Philosophy",
+            "description": "We are built on a foundation of core values that guide every class, every member, and every challenge.",
+            "align": "center",
+            "cards": [
+                {
+                    "id": "strength-technique",
+                    "title": "Strength & Technique",
+                    "icon": "fitness_center",
+                    "description": "Master the art of combat with expert coaching and a focus on proper form."
+                },
+                {
+                    "id": "community-respect",
+                    "title": "Community & Respect",
+                    "icon": "favorite",
+                    "description": "Join a supportive family that pushes you to be your best, both on and off the mats."
+                },
+                {
+                    "id": "fitness-discipline",
+                    "title": "Fitness & Discipline",
+                    "icon": "neurology",
+                    "description": "Build mental and physical fortitude through rigorous, structured training programs."
+                }
+            ]
+        },
+        "programs": {
+            "title": "Find Your Fight",
+            "cards": [
+                {
+                    "title": "Mixed Martial Arts",
+                    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuC3RA1CdGT1GRjVnkbPQOZY4XJlbND1R6MC0VrBKOq-ImZsd_7IB29VU83t7RJWxeLkZP81YZBdr4qG-t4ySXX0QncJlsdGtrO28V3U9KtWFW-3SaXsGZsO6j5tz6T6da7KfFJjWe48PJs0pFs4gywPtBAoZERefQzlxOHsargULsgdZmYPCtRu6MC4SHkF3DLxdkBiDCLiQfG67LlfoiNvbVAxYov5ffhkC1YglKFbZpr05PWiqwL3ew_u3fYm1RSMgAFo8_geTKU"
+                },
+                {
+                    "title": "Judo",
+                    "image": "/images/judo.webp"
+                },
+                {
+                    "title": "Cross-Fit",
+                    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBCOi0Sre5JQ3MYxsYK0EdOEL_DpaHTZnMt2rnSQSB3APecrYRwRO48YDx7swGZrMSjxmD9z99c6mvYJXiydghS4gkEqeXKwB4C5s47DGRXRl32DDz02VUONnARi11vKo5MSrJ3PAVMZq7vEGqBvtx--niwD_CT6gz9g5s4T9vjJKPihth2gTwmc_ZUWhsRKxinqWh9rV37kSx3LVgf9Pibs_cNQQz1esuL3u330RBC24tQDeNJiwLn8jUHncB9DFzc_3QE2GbXggQ"
+                },
+                {
+                    "title": "Yoga",
+                    "image": "/images/yoga.webp"
+                },
+                {
+                    "title": "Weight Loss",
+                    "image": "/images/weightloss.webp"
+                },
+                {
+                    "title": "Weight Gain",
+                    "image": "/images/weightgain.webp"
+                }
+            ]
+        },
+        "testimonials": {
+            "title": "What Our Members Say",
+            "description": "Hear from the people who make our community what it is.",
+            "showDescription": "true",
+            "cards": [
+                {
+                    "quote": "I have been training at Pride MMA Fight Club has truly transformed my game. The coaches push you to your best with proper technique and discipline. Great facilities, great energy, and perfect for MMA and boxing training.",
+                    "name": "Charan",
+                    "memberSince": "2025",
+                    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAU5KA1-rIGS5RwwB4iGISfCY6TOnDtf_8Pag3cRy6wpxhtUcWjLGV6U_KIbv5mfaH78HUUX47qRM_bIIIK-WAiijfOQQRbO_gDdvuwdLuKbL5J75LyypuJPkHGPsCcX5E9jnMPKro_lNmXO1MXzH0YXesr560xpUFIKwIZTCZSbYQVFYLGw6BxiD-vRFdwWoIKqUo0QQiNOV5OOAqqht_l1x-RUwyMffFqgcKdXN5KKx6B_KcXwE2qLg8tdinq0KsigC8GA2l1Uk8"
+                },
+                {
+                    "quote": "It’s going to be a year since i started my MMA journey here. I was contemplating a lot about joining MMA past prime years, but took a chance and joined here and It’s been a great place for me to learn and see my progress. Now recently added S&C session has been a game changer. Coaches have been nothing but wonderful. Please keep up the same phase.",
+                    "name": "Ambika Arvind",
+                    "memberSince": "2025",
+                    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuC35k2PU28yT3D0nrpW4DjRRwEG_wGHPzFwXE-qHMGd7CkNi_TgBHHq7hJK66C7ogFFJiRw5jlRmC8AAW0l6UbKbEAGbmnJuXH1eMfur7i0d_wpas5-9THi60__KnY21sj3U3BnTgaS-cDOCxGHvL2PiUXjJ0S0C82uGRINhM22vT2NFy5CpSUu1alRfUJQfFqQSwyhqC_FBKqSPNUU0ItOa_kNmo2MHNWJU6IsFAFGvR0X870Q2hVZF21TRelm_pu_aJh1Z3pa9og"
+                },
+                {
+                    "quote": "Amazing experience at Pride MMA & Fitness Club! The kickboxing and Muay Thai sessions are intense yet beginner-friendly. Trainers are super motivating and knowledgeable. Great place for weight loss, strength, and learning real self-defense. Easily one of the best gyms in Whitefield for fitness and MMA!",
+                    "name": "Rahul",
+                    "memberSince": "2025",
+                    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuATCtQq-SBysiv3eZKcpnjcwX3yifqvBEDYFMajUP9rOZUAkg-7aCFnSpUvGVhzL4jmL09BMOIsJ9OIJrIdBsGZmK_Qkc-ZYwWdEvQ8TGjOb7H6GRTGakOOvyWrLnLsJcsBPjRPj3xnptoBj7DG4a6cewHS9iKkQh-o1vQGYUpLDeJUjkA9ZTN2EN2D5D_9CpvL-Ai8pSvt0hL83HUH94zL25jXvx9IJ7OieS8835zfmfKzdCPAoNTmsC_EJpM7bOZ-_SQA9sriSwU"
+                }
+            ]
+        }
+    },
+    "aboutUs": {
+        "hero": {
+            "title": "Forged by Passion. Defined by Pride.",
+            "description": "Empowering individuals through the discipline and community of martial arts and fitness.",
+            "bgImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuBR9wGTAcyA9JOse6B4Qz5NLofS2nN-P4DlXlehCxOaow2OAKK3BEW2fND_A1nCr44xIAg0LwG9gzbS87ytz4g1gEyJLdNva-AD-qcI_zp4RwkFm9h1l4FK-qwoL0AdZKur4juMH200o3uLYJjvtF86vtfBUWNRb3KBlou7AJYg3p1RVD4sOSCRAiOO0-4x5Hitq45WWkLmRRutbCPk6KbOyiIHt5CwHNc4MnrO5HvMJHSR7c2fYczWtJLE90FGaj98cSVkOlyfSRg"
+        },
+        "story": {
+            "title": "Our Story",
+            "description": "Founded in 2020, our journey is built on over 20 years of passion for sports, starting at the age of 17 and growing through kabaddi, strength & conditioning, CrossFit, powerlifting, and bodybuilding. At 37, one Brazilian Jiu-Jitsu class after lockdown changed everything — the passion turned into a mission. Since then, we’ve been training in BJJ for the past two years and have successfully conducted four exciting MMA events to build our community. Our goal is simple: to help people of all ages learn MMA, discover their strength, and unlock their true potential. MMA is not just about looking fit — it’s about feeling powerful, confident, and ready to conquer every challenge life throws at you.",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAavW2vwX_Nu-gJ5R-esTpR8zGseWcv2FBajqZnvOcW-EuGpD8_QzOozZYiwzE05E3nutPGd61vhIqNzcbaBfnIfu7DjI9JfEwyMQv6YBOJdgkrlpHyEI2cjtAX3TTpWgxE7-diivtpdjeclZ8oxWr9Q9RpRuaKL2-_Voc4GdgRMMvzKMKdzgkJtyYIi3SXmhEb-QqYjHhQibf-8pD8b9oflnHHJpxOpDjUKv_deysKP2RC1uqx8C_SnKAGMCXZE3zgxI_IjN1zAF0"
+        },
+        "mission": {
+            "title": "Our Mission & Values",
+            "description": "Our purpose is to empower individuals through martial arts and fitness, fostering a community built on respect, integrity, and perseverance.",
+            "align": "left",
+            "cardAlign": "left",
+            "cards": [
+                {
+                    "id": "community",
+                    "title": "Community",
+                    "icon": "groups",
+                    "description": "Fostering a supportive and inclusive environment for all members."
+                },
+                {
+                    "id": "discipline",
+                    "title": "Discipline",
+                    "icon": "verified_user",
+                    "description": "Cultivating mental and physical focus through dedicated training."
+                },
+                {
+                    "id": "strength",
+                    "title": "Strength",
+                    "icon": "fitness_center",
+                    "description": "Building resilience and power, both inside and out of the gym."
+                }
+            ]
+        },
+        "team": {
+            "title": "Meet the Team",
+            "persons": [
+                {
+                    "name": "Raj",
+                    "role": "Head Coach & Professional MMA Fighter",
+                    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAWgC5lhfYNdhfdc4NpiqHh13g9XFeN8NZyMQMYTmJcAR5u42BYIt_zd_fJjrqfw_lTxale0NKbYR1d4XBwIb-cQ7WfCUEbidwCokwub_DFFfOIhcYsg7YW8tCYFQLkHR33gZ_ikKzeX_GQPQPHY75e5QRlNskWGaBoCLvWYLj5eP4ioRXt7LWvKyryCMwcrAEQCwLwE7xv1CMyAkRWg87oHr6OIIZ78q3-VpDeKVMl88E0nUnEfXT-yywC9Rq0bSMGHjCT42EuSf4",
+                    "description": "A Taekwondo black belt with 18 years of experience, 15-time MMA National Champion, and 16 professional MMA bouts."
+                },
+                {
+                    "name": "Sada Shivam",
+                    "role": "Wrestling & Judo Coach",
+                    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBy2q_VPG1hpUInr_WB19nwp19ex61JSL9zOBPEh3Ovbfv6Jjmv8reMPpJxibsYbPYB-9bycoF2Ulw-leDawQiJKMtRu1H5uejcD1foDPIzPviUZNCvzjWixbKBslOo7hNU9x3x6WKd_1QCcrG9ifMc_Z992kXcUTm-eUEIlgPamW1de9cOLEQogJp3fNbB5vPFSQZAd8UH1ZzSCOP7J53J-k01SjxuEMQ_fiMQc4j8Sh3G32j_pgeqPKGGP7Zhl4cjK29zVy7c11U",
+                    "description": "Former national champion with a passion for teaching authentic striking."
+                },
+                {
+                    "name": "Rahul",
+                    "role": "Strength & Conditioning",
+                    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuARINb3brfTlcGa40NlOe3PHnYzwCqfGatM0kJs9EbiobaptaCH-muzCoKkCztJ0-rB8rX4jHmTeFly9OaM3ePtJhC0g0SZ4hOQ80juLdp3Q3M45i2IklEcIdyLnlb4AwqTQVD7a7O5KwBgzIuJFFf0vFAd2e5wK4S2XGxqYye22QclvUwRUcaKXX4IrebTKstjxZgumIhCwf20ZxlrLlCdhxmCkiftnut1TcWWlywYdKdm05CDtC4dRh3SJW2m6PDs2qEfY8HbljA",
+                    "description": "Certified trainer specializing in explosive power for combat athletes."
+                }
+            ]
+        },
+        "bookYourFreeTrial": {
+            "heading": "Ready to Start Your Journey?",
+            "description": "Join a community dedicated to growth, strength, and mutual respect. Visit us or book a free trial class to experience the Pride difference.",
+            "button": "Book Your Free Trial"
+        }
+    },
+    "classes": {
+        "hero": {
+            "title": "Classes & Programs",
+            "description": "Discipline, Strength, Community. Find the fighter in you and forge a better version of yourself with our world-class programs.",
+            "bgImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCC8GRj-uflqthxM3wIQE-qNWDf5OeMrrTigQwLZ9wo0gqLmpGn4ZvM_BYkGwuk42zQUlLPEalFBzMFYFy240yM5bfbEiBhyZpZPUHHfU4QOp4NhCoE60KJ8wOHbMLFvqtMxiaFfNcyZ2tUfR2B0VSXBgQTaUcSZolfrJ9RAPmj9BblFw1QBRLOU5VUtn-x3KhUU2RFkRrQdq7tIde_K89Rb43Yj8RFMPojOP4cVXzy9qJyj5q812PMTJ1aKx_s9DAx-EwaEk3DrII"
+        },
+        "classSchedule": {
+            "hero": {
+                "title": "Class Schedule",
+                "menu": [
+                    {
+                        "title": "All"
+                    },
+                    {
+                        "title": "MMA"
+                    },
+                    {
+                        "title": "Fitness"
+                    },
+                    {
+                        "title": "Youth"
+                    }
+                ],
+                "classDetails": [
+                    {
+                        "day": "Monday",
+                        "class": [
+                            {
+                                "title": "Striking/MMA",
+                                "time": "6:30 - 8:00 AM",
+                                "coach": "Coach Raj",
+                                "color": "red"
+                            },
+                            {
+                                "title": "Striking/MMA",
+                                "time": "8:30 - 10:00 AM",
+                                "coach": "Coach Raj",
+                                "color": "red"
+                            },
+                            {
+                                "title": "Striking/MMA",
+                                "time": "5:00 - 6:30 PM",
+                                "coach": "Coach Raj",
+                                "color": "red"
+                            },
+                            {
+                                "title": "Striking/MMA",
+                                "time": "7:00 - 8:30 PM",
+                                "coach": "Coach Raj",
+                                "color": "red"
+                            }
+                        ]
+                    },
+                    {
+                        "day": "Tuesday",
+                        "class": [
+                            {
+                                "title": "Judo/Wrestling",
+                                "time": "6:30 - 8:00 AM",
+                                "coach": "Coach Sada Shivam",
+                                "color": "blue"
+                            },
+                            {
+                                "title": "Cross-Fit",
+                                "time": "8:30 - 10:00 AM",
+                                "coach": "Coach Naveen",
+                                "color": "green"
+                            },
+                            {
+                                "title": "Cross-Fit",
+                                "time": "5:00 - 6:30 PM",
+                                "coach": "Coach Naveen",
+                                "color": "green"
+                            },
+                            {
+                                "title": "Cross-Fit",
+                                "time": "7:00 - 8:30 PM",
+                                "coach": "Coach Naveen",
+                                "color": "green"
+                            }
+                        ]
+                    },
+                    {
+                        "day": "Wednesday",
+                        "class": [
+                            {
+                                "title": "BJJ/Grappling",
+                                "time": "6:30 - 8:00 AM",
+                                "coach": "Coach Raj",
+                                "color": "blue"
+                            },
+                            {
+                                "title": "BJJ/Grappling",
+                                "time": "8:30 - 10:00 AM",
+                                "coach": "Coach Raj",
+                                "color": "blue"
+                            },
+                            {
+                                "title": "BJJ/Grappling",
+                                "time": "5:00 - 6:30 PM",
+                                "coach": "Coach Raj",
+                                "color": "blue"
+                            },
+                            {
+                                "title": "BJJ/Grappling",
+                                "time": "7:00 - 8:30 PM",
+                                "coach": "Coach Raj",
+                                "color": "blue"
+                            }
+                        ]
+                    },
+                    {
+                        "day": "Thursday",
+                        "class": [
+                            {
+                                "title": "Strength & Conditioning",
+                                "time": "6:30 - 8:00 AM",
+                                "coach": "Coach Naveen",
+                                "color": "green"
+                            },
+                            {
+                                "title": "Strength & Conditioning",
+                                "time": "8:30 - 10:00 AM",
+                                "coach": "Coach Naveen",
+                                "color": "green"
+                            },
+                            {
+                                "title": "Strength & Conditioning",
+                                "time": "5:00 - 6:30 PM",
+                                "coach": "Coach Naveen",
+                                "color": "green"
+                            },
+                            {
+                                "title": "Judo/Wrestling",
+                                "time": "7:00 - 8:30 PM",
+                                "coach": "Coach Sada Shivam",
+                                "color": "blue"
+                            }
+                        ]
+                    },
+                    {
+                        "day": "Friday",
+                        "class": [
+                            {
+                                "title": "MMA",
+                                "time": "6:30 - 8:00 AM",
+                                "coach": "Coach Raj",
+                                "color": "red"
+                            },
+                            {
+                                "title": "MMA",
+                                "time": "8:30 - 10:00 AM",
+                                "coach": "Coach Raj",
+                                "color": "red"
+                            },
+                            {
+                                "title": "MMA",
+                                "time": "5:00 - 6:30 PM",
+                                "coach": "Coach Raj",
+                                "color": "red"
+                            },
+                            {
+                                "title": "MMA",
+                                "time": "7:00 - 8:30 PM",
+                                "coach": "Coach Raj",
+                                "color": "red"
+                            }
+                        ]
+                    },
+                    {
+                        "day": "Saturday",
+                        "class": [
+                            {
+                                "title": "Outdoor session/S&C",
+                                "time": "7:00 - 8:30 AM",
+                                "coach": "Coach Naveen",
+                                "color": "green"
+                            },
+                            {
+                                "title": "S&C/HIIT",
+                                "time": "6:00 PM - 7:30 PM",
+                                "coach": "Coach Naveen",
+                                "color": "green"
+                            }
+                        ]
+                    },
+                    {
+                        "day": "Sunday",
+                        "class": [
+                            {
+                                "title": "Yoga/Seminar",
+                                "time": "6:00 PM - 7:30 PM",
+                                "coach": "Coach Naveen",
+                                "color": "purple"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "bookYourFreeTrial": {
+            "heading": "Ready to Unleash Your Potential?",
+            "description": "Take the first step on your journey. Your first class is on us.",
+            "button": "Claim Your Free Trial"
+        }
+    },
+    "upcomingEvents": {
+        "header": {
+            "heading": "Upcoming Events",
+            "description": "Don't miss out on the action."
+        },
+        "latestEvent": {
+            "date": "Apr 05 • 10:00 AM",
+            "title": "Annual Pride Championship",
+            "description": "The biggest fight night of the year is back. Watch our top fighters go head-to-head for the title. Limited VIP seating available.",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAyWQFrVMdbna1M8YEQh-ZCY5ugPW5xTl7NJAXimQyRuewD5LbrdzPfAEp3bmdnJ1iQ4ijdFMS9OrdYT2-KW_h79DenAzU5xEjrDzqgypXGciUkkVot6TfG-fj2NmOg9nQI5Sjr60F3UN8yip12DBlfn5EkWKe5R58aaylp5-QhIJRw74l-s_lUa-EmS6CkQf7xY1XsevH1_Nyj8Fh1h0EtcBIFQq6CKSLZ47Nz5U5aTy16jqAwJujbMVbgsYhIXhNXVo-Z06B4Fqc",
+            "primaryButton": "Register Now",
+            "secondaryButton": "Event Details",
+            "primaryBadge": "Featured",
+            "secondaryBadge": "Championship"
+        }
+    },
+    "contactUs": {
+        "header": "Get In Touch",
+        "description": "We're here to help and answer any question you might have. We look forward to hearing from you.",
+        "details": [
+            {
+                "label": "Phone Number",
+                "value": "9745775901",
+                "icon": "call",
+                "text": "Call Us"
+            },
+            {
+                "label": "Email ID",
+                "value": "contact@pridemma.com",
+                "icon": "mail",
+                "secondaryIcon": "content_copy"
+            },
+            {
+                "label": "Address",
+                "value": "Sy 9, 150/1, 19/19A, Prasanth Layout, Whitefield, Bengaluru, Karnataka 560066",
+                "icon": "location_on",
+                "text": "Get Directions",
+                "directions": "https://www.google.com/maps?s=web&rlz=1C5CHFA_enIN1111IN1111&sca_esv=cb0b2358a0071c17&lqi=CglwcmlkZSBtbWFIoMXmuN28gIAIWhMQABABGAAYASIJcHJpZGUgbW1hkgEOZml0bmVzc19jZW50ZXI&vet=12ahUKEwjnkeuzkoOTAxXsa2wGHddGFZ0Q1YkKegQIKhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KbPKDyfPD647MbRd-hYLDflK&daddr=Sy+9,+150/1,+19/19A,+Prasanth+Layout,+Whitefield,+Bengaluru,+Karnataka+560066"
+            },
+            {
+                "label": "Other Branch",
+                "value": "NO. 25, 1st Floor, SRI SAI SRINIVASA ENCLAVE, ESTHER ENCLAVE LAYOUT, Jayanti Nagar, Horamavu, Bengaluru, Karnataka 560016",
+                "icon": "location_on",
+                "text": "Get Directions",
+                "directions": "https://www.google.com/maps/dir//Pride+MMA+and+Fitness+Club,+NO.+25,+1st+Floor,+SRI+SAI+SRINIVASA+ENCLAVE,+ESTHER+ENCLAVE+LAYOUT,+Jayanti+Nagar,+Horamavu,+Bengaluru,+Karnataka+560016/@12.986246,77.7566516,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae117da55e51fb:0x443802cb3002d508!2m2!1d77.6673984!2d13.0257764?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
+            }
+        ],
+        "hoursOfOperation": {
+            "title": "Hours Of Operation",
+            "day": "6:30 AM - 8:30 PM",
+            "saturday": "7:00 AM - 7:30 PM",
+            "sunday": "6:00 PM - 7:30 PM"
+        }
+    },
+    "membership": {
+        "hero": {
+            "title": "Unleash Your Potential. Find Your Pride.",
+            "description": "Join a community of champions dedicated to pushing limits. Whether you're a beginner or a pro, we have a plan to help you achieve your fitness and combat sport goals.",
+            "bgImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCYdpBmY3r1AV0RYKLnhXUeETuU2pbtb4-bsxEp_opbBfpwXe2ihCmEh53HpLV4LTkJ8MIAHCUMQpl9QA2dWlL7uuH_uX7De5KzPFQhe1sMZaTREEvmfao9iU7mKgA1Frv_ENfyuzLEjh17CYxJcb2a21W-HVzfIGTH2IFRjjiCBJHEGh83kieNr1D66golc8b687vnIQ1Qc5MybJvdsquCUKBx7QD8JfEkMetBvnIRQNXhZrNOeJwiMNJgiFkV3BEkRBUL8JmFNX0",
+            "primary": {
+                "name": "View Plans",
+                "route": "/membership"
+            }
+        }
+    },
+    "footer": {
+        "description": "Forge your strength. Find your pride.",
+        "copyRights": "© 2026 Pride MMA™. All Rights Reserved.",
+        "brandName": "Pride MMA",
+        "tagline": "Forge your strength. Find your pride.",
+        "year": "2026",
+        "founder": {
+            "name": "ragul",
+            "url": "https://www.linkedin.com/in/raguld3v/"
+        },
+        "cofounder": {
+            "name": "mariya",
+            "url": "https://www.linkedin.com/in/mariya-saji7/"
+        },
+        "section": [
+            {
+                "title": "Follow us",
+                "links": [
+                    {
+                        "label": "Instagram",
+                        "href": "https://www.instagram.com/pride.mma.whitefield/"
+                    },
+                    {
+                        "label": "Facebook",
+                        "href": "https://www.facebook.com/p/Pride-MMA-and-Fitness-Club-61575843075894/"
+                    }
+                ]
+            },
+            {
+                "title": "Legal",
+                "links": [
+                    {
+                        "label": "Privacy Policy",
+                        "href": "#"
+                    },
+                    {
+                        "label": "Terms & Conditions",
+                        "href": "#"
+                    }
+                ]
+            }
+        ]
+    }
+}

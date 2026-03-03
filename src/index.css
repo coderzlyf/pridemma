@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #ec131e;
+    --color-background-light: #f8f6f6;
+    --color-background-dark: #181111;
+
+    --radius-default: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+
+    --font-lexend: Lexend, sans-serif;
+}
+
+@layer base {
+    html {
+        font-family: var(--font-lexend);
+    }
+}
+
+/* overrides */
+html {
+    scroll-behavior: smooth;
+}
+
+#root {
+    padding: unset !important;
+}
+
+body {
+    background: var(--color-background-light);
+}
