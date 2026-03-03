@@ -51,6 +51,61 @@ const itemVariants: Variants = {
 };
 
 const ContactForm = () => {
+  const [touched, setTouched] = useState({
+    name: false,
+    number: false,
+    subject: false,
+    message: false,
+  });
+
+  const [errors, setErrors] = useState({
+    name: "",
+    number: "",
+    subject: "",
+    message: "",
+  });
+
+  const [isValid, setIsValid] = useState(false);
+
+  const validateForm = (formValues: {
+    name: string;
+    number: string;
+    subject: string;
+    message: string;
+  }) => {
+    const newErrors = {
+      name: "",
+      number: "",
+      subject: "",
+      message: "",
+    };
+
+    if (!formValues.name.trim()) {
+      newErrors.name = "Full name is required";
+    }
+
+    if (!formValues.number.trim()) {
+      newErrors.number = "Phone number is required";
+    } else if (!/^[6-9]\d{9}$/.test(formValues.number)) {
+      newErrors.number = "Enter a valid 10-digit phone number";
+    }
+
+    if (!formValues.subject.trim()) {
+      newErrors.subject = "Subject is required";
+    }
+
+    if (!formValues.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    setErrors(newErrors);
+
+    const formIsValid = Object.values(newErrors).every((err) => err === "");
+    setIsValid(formIsValid);
+
+    return formIsValid;
+  };
+
   const data = useAppSelector((state: any) => state.config.data);
   const contactForm = data?.contactUs;
 
@@ -102,25 +157,69 @@ const ContactForm = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    // 2. Extract values using FormData (cleaner than multiple refs)
     const formData = new FormData(e.target);
-    const name = formData.get("full-name");
-    const number = formData.get("number");
-    const subject = formData.get("subject");
-    const message = formData.get("message");
 
-    // 3. Format the message for WhatsApp
-    const text =
-      `*🚨New Member Inquiry🚨*%0A%0A` +
-      `*Name:* ${name}%0A` +
-      `*Number:* ${number}%0A` +
-      `*Subject:* ${subject}%0A` +
-      `*Message:* ${message}`;
+    const formValues = {
+      name: String(formData.get("full-name") || ""),
+      number: String(formData.get("number") || ""),
+      subject: String(formData.get("subject") || ""),
+      message: String(formData.get("message") || ""),
+    };
 
-    // 4. Open WhatsApp
+    if (!validateForm(formValues)) return;
+
+    const messageHeader = "!!! New Member Inquiry !!!";
+
+    const text = encodeURIComponent(
+      `*${messageHeader}*\n\n` +
+        `*Name:* ${formValues.name}\n` +
+        `*Number:* ${formValues.number}\n` +
+        `*Subject:* ${formValues.subject}\n` +
+        `*Message:* ${formValues.message}`
+    );
+
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+
     window.open(whatsappUrl, "_blank");
+
+    e.target.reset();
+    setSubject("");
+    setIsValid(false);
   };
+
+  // const handleSubmit = (e: any) => {
+  //   e.preventDefault();
+
+  //   // 2. Extract values using FormData (cleaner than multiple refs)
+  //   const formData = new FormData(e.target);
+  //   const name = formData.get("full-name");
+  //   const number = formData.get("number");
+  //   const subject = formData.get("subject");
+  //   const message = formData.get("message");
+
+  //   const messageHeader = "!!! New Member Inquiry !!!";
+
+  //   // 3. Format the message for WhatsApp
+  //   const text = encodeURIComponent(
+  //     `*${messageHeader}*\n\n` +
+  //       `*Name:* ${name}\n` +
+  //       `*Number:* ${number}\n` +
+  //       `*Subject:* ${subject}\n` +
+  //       `*Message:* ${message}`
+  //   );
+
+  //   // 4. Open WhatsApp
+  //   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+
+  //   window.open(whatsappUrl, "_blank");
+
+  //   e.target.reset();
+
+  //   // 4. Clear React state if you're using controlled inputs (like your 'subject' state)
+  //   if (typeof setSubject === "function") {
+  //     setSubject("");
+  //   }
+  // };
 
   return (
     <motion.div
@@ -306,7 +405,21 @@ const ContactForm = () => {
         ref={formRef}
         className="bg-white p-8 rounded-lg shadow-sm border border-neutral-200 lg:sticky lg:top-24 h-fit"
       >
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6 text-left">
+        <form
+          onSubmit={handleSubmit}
+          onChange={(e) => {
+            const form = e.currentTarget;
+            const formData = new FormData(form);
+
+            validateForm({
+              name: String(formData.get("full-name") || ""),
+              number: String(formData.get("number") || ""),
+              subject: String(formData.get("subject") || ""),
+              message: String(formData.get("message") || ""),
+            });
+          }}
+          className="flex flex-col gap-6 text-left"
+        >
           <motion.h3
             variants={itemVariants}
             className="text-2xl font-bold tracking-tight text-background-dark"
@@ -331,7 +444,11 @@ const ContactForm = () => {
                 name="full-name"
                 placeholder="John Doe"
                 type="text"
+                onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
               />
+              {touched.name && errors.name && (
+                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+              )}
             </div>
             <div>
               <label
@@ -341,12 +458,16 @@ const ContactForm = () => {
                 Phone number
               </label>
               <input
-                className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400"
+                className="w-full bg-neutral-50 border border-neutral-200 text-background-dark rounded-md h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-neutral-400 appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 id="number"
                 name="number"
                 placeholder="9876543210"
                 type="number"
+                onBlur={() => setTouched((prev) => ({ ...prev, number: true }))}
               />
+              {touched.number && errors.number && (
+                <p className="text-red-500 text-xs mt-1">{errors.number}</p>
+              )}
             </div>
           </motion.div>
           <motion.div variants={itemVariants}>
@@ -364,7 +485,11 @@ const ContactForm = () => {
               onChange={(e) => setSubject(e.target.value)}
               placeholder="Inquiry about classes"
               type="text"
+              onBlur={() => setTouched((prev) => ({ ...prev, subject: true }))}
             />
+            {touched.subject && errors.subject && (
+              <p className="text-red-500 text-xs mt-1">{errors.subject}</p>
+            )}
           </motion.div>
           <motion.div variants={itemVariants}>
             <label
@@ -379,7 +504,11 @@ const ContactForm = () => {
               name="message"
               placeholder="Hi, I'd like to know more about..."
               rows={2}
+              onBlur={() => setTouched((prev) => ({ ...prev, message: true }))}
             ></textarea>
+            {touched.message && errors.message && (
+              <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+            )}
           </motion.div>
           <motion.div variants={itemVariants}>
             <button
