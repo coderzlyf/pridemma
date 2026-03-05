@@ -113,7 +113,7 @@ const ClassSchedule = () => {
             </div>
 
             {Array.isArray(day.class) ? (
-              day.class.map((cls: ClassItem) => {
+              day.class.map((cls: ClassItem, index: number) => {
                 // Map color to Tailwind classes to avoid purge issues
                 const colorClasses: Record<string, string> = {
                   blue: "border-blue-500 bg-blue-50 hover:bg-blue-100 group-hover:text-blue-700",
@@ -130,7 +130,7 @@ const ClassSchedule = () => {
 
                 return (
                   <div
-                    key={cls.title}
+                    key={index}
                     className={`rounded-lg min-h-32.5 border-l-4 p-3 shadow-sm transition-all hover:shadow-md cursor-pointer group ${classes}`}
                   >
                     <p className="font-bold text-zinc-900">{cls.title}</p>

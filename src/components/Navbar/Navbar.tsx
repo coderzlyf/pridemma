@@ -170,7 +170,11 @@ const Navbar = () => {
             .filter((item: any) => item.name != "Membership")
             .map((item: any, val: number) => (
               <motion.li key={val} variants={mobileItemVariants}>
-                <NavLink to={item.path} onClick={() => setIsOpen(false)}>
+                <NavLink
+                  className="block"
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                >
                   {item.name}
                 </NavLink>
               </motion.li>
@@ -178,7 +182,7 @@ const Navbar = () => {
           <motion.li variants={mobileItemVariants}>
             <NavLink
               to={data?.navigation?.cta?.path}
-              className="text-primary animate-[flash_1s_ease-in-out_infinite]"
+              className="text-primary block animate-[flash_1s_ease-in-out_infinite]"
               onClick={redirectAndContent}
             >
               {data?.navigation?.cta?.label}
