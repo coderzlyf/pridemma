@@ -41,6 +41,7 @@
             "title": "Unleash Your Potential",
             "description": "More than a gym. We are a community built on respect, discipline, and pride.",
             "bgImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCBNtFO9Z7bGdlClmlIESQLIjeyFtdFmRmGdg7K3ymIztDTrN3WAFvdwb254VD4NOCOhmzAK58MbHWFUotRLIbDb20kY-2TXeWGvEEgql2oj_zGiohxlqqapYGGmA_jokMlkNsZ8fZg7BLuJdzcqlJlcaUin8NPbXhtZttqPM7WTbbaAwnnsw0zpF43ft_Wbx339KR1pwzUESRP7LSfgo4DVX0bEqIj5Og9lfC5rnTh2n9fXDDqR77QtGw0_3TxzeOtDYc5DZbZoEI",
+            "loadBgImage": "/images/homePageBgLoad.webp",
             "primary": {
                 "name": "View Classes",
                 "route": "/classes"
@@ -134,7 +135,8 @@
         "hero": {
             "title": "Forged by Passion. Defined by Pride.",
             "description": "Empowering individuals through the discipline and community of martial arts and fitness.",
-            "bgImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuBR9wGTAcyA9JOse6B4Qz5NLofS2nN-P4DlXlehCxOaow2OAKK3BEW2fND_A1nCr44xIAg0LwG9gzbS87ytz4g1gEyJLdNva-AD-qcI_zp4RwkFm9h1l4FK-qwoL0AdZKur4juMH200o3uLYJjvtF86vtfBUWNRb3KBlou7AJYg3p1RVD4sOSCRAiOO0-4x5Hitq45WWkLmRRutbCPk6KbOyiIHt5CwHNc4MnrO5HvMJHSR7c2fYczWtJLE90FGaj98cSVkOlyfSRg"
+            "bgImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuBR9wGTAcyA9JOse6B4Qz5NLofS2nN-P4DlXlehCxOaow2OAKK3BEW2fND_A1nCr44xIAg0LwG9gzbS87ytz4g1gEyJLdNva-AD-qcI_zp4RwkFm9h1l4FK-qwoL0AdZKur4juMH200o3uLYJjvtF86vtfBUWNRb3KBlou7AJYg3p1RVD4sOSCRAiOO0-4x5Hitq45WWkLmRRutbCPk6KbOyiIHt5CwHNc4MnrO5HvMJHSR7c2fYczWtJLE90FGaj98cSVkOlyfSRg",
+            "loadBgImage": "/images/aboutUsBgLoad.webp"
         },
         "story": {
             "title": "Our Story",
@@ -200,7 +202,8 @@
         "hero": {
             "title": "Classes & Programs",
             "description": "Discipline, Strength, Community. Find the fighter in you and forge a better version of yourself with our world-class programs.",
-            "bgImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCC8GRj-uflqthxM3wIQE-qNWDf5OeMrrTigQwLZ9wo0gqLmpGn4ZvM_BYkGwuk42zQUlLPEalFBzMFYFy240yM5bfbEiBhyZpZPUHHfU4QOp4NhCoE60KJ8wOHbMLFvqtMxiaFfNcyZ2tUfR2B0VSXBgQTaUcSZolfrJ9RAPmj9BblFw1QBRLOU5VUtn-x3KhUU2RFkRrQdq7tIde_K89Rb43Yj8RFMPojOP4cVXzy9qJyj5q812PMTJ1aKx_s9DAx-EwaEk3DrII"
+            "bgImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCC8GRj-uflqthxM3wIQE-qNWDf5OeMrrTigQwLZ9wo0gqLmpGn4ZvM_BYkGwuk42zQUlLPEalFBzMFYFy240yM5bfbEiBhyZpZPUHHfU4QOp4NhCoE60KJ8wOHbMLFvqtMxiaFfNcyZ2tUfR2B0VSXBgQTaUcSZolfrJ9RAPmj9BblFw1QBRLOU5VUtn-x3KhUU2RFkRrQdq7tIde_K89Rb43Yj8RFMPojOP4cVXzy9qJyj5q812PMTJ1aKx_s9DAx-EwaEk3DrII",
+            "loadBgImage": "/images/classesBgLoad.webp"
         },
         "classSchedule": {
             "hero": {
@@ -471,6 +474,7 @@
             "title": "Unleash Your Potential. Find Your Pride.",
             "description": "Join a community of champions dedicated to pushing limits. Whether you're a beginner or a pro, we have a plan to help you achieve your fitness and combat sport goals.",
             "bgImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCYdpBmY3r1AV0RYKLnhXUeETuU2pbtb4-bsxEp_opbBfpwXe2ihCmEh53HpLV4LTkJ8MIAHCUMQpl9QA2dWlL7uuH_uX7De5KzPFQhe1sMZaTREEvmfao9iU7mKgA1Frv_ENfyuzLEjh17CYxJcb2a21W-HVzfIGTH2IFRjjiCBJHEGh83kieNr1D66golc8b687vnIQ1Qc5MybJvdsquCUKBx7QD8JfEkMetBvnIRQNXhZrNOeJwiMNJgiFkV3BEkRBUL8JmFNX0",
+            "loadBgImage": "/images/membershipBgLoad.webp",
             "primary": {
                 "name": "View Plans",
                 "route": "/membership"

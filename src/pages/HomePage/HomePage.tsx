@@ -16,6 +16,7 @@ const HomePage = () => {
         title={hero.title}
         description={hero.description}
         bgImage={hero.bgImage}
+        loadBgImage={hero.loadBgImage}
         primaryButton={{
           show: hero.primary ? true : false,
           text: `${hero.primary.name}`,

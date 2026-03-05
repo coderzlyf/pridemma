@@ -15,6 +15,7 @@ const AboutUs = () => {
         title={hero.title}
         description={hero.description}
         bgImage={hero.bgImage}
+        loadBgImage={hero.loadBgImage}
       />
       <OurStory
         title={story.title}

@@ -14,6 +14,7 @@ const Classes = () => {
         title={hero.title}
         description={hero.description}
         bgImage={hero.bgImage}
+        loadBgImage={hero.loadBgImage}
       />
       <ClassSchedule />
       <BookYourTrialClasses />

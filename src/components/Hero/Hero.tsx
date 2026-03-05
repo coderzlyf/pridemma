@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import { useEffect, useState } from "react";
 import "./Hero.css";
 
 const containerVariants = {
@@ -26,6 +27,7 @@ type HeroProps = {
   title: string;
   description?: string;
   bgImage?: string;
+  loadBgImage?: string;
   alt?: string;
 
   primaryButton?: {
@@ -45,15 +47,29 @@ const Hero = ({
   title,
   description,
   bgImage,
+  loadBgImage,
   alt,
   primaryButton,
   secondaryButton,
 }: HeroProps) => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!bgImage) return;
+
+    const img = new Image();
+    img.src = bgImage;
+
+    img.onload = () => {
+      setLoaded(true);
+    };
+  }, [bgImage]);
+
   const bgStyle = {
     backgroundImage: `
-          linear-gradient(rgba(24, 17, 17, 0.6) 0%, rgba(24, 17, 17, 0.7) 100%),
-          url(${bgImage})
-        `,
+      linear-gradient(rgba(24,17,17,0.6), rgba(24,17,17,0.7)),
+      url(${loaded ? bgImage : loadBgImage})
+    `,
   };
 
   return (
@@ -62,12 +78,15 @@ const Hero = ({
         <motion.div
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="relative flex min-h-[480px] md:min-h-[500px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 rounded-lg items-center justify-center p-4 shadow-md overflow-hidden"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className={`relative flex min-h-[480px] md:min-h-[500px] flex-col gap-6 
+          bg-cover bg-center bg-no-repeat @[480px]:gap-8 rounded-lg 
+          items-center justify-center p-4 shadow-md overflow-hidden
+          transition-all duration-700
+          ${loaded ? "blur-0 scale-100" : "blur-md scale-105"}`}
           style={bgStyle}
           data-alt={alt}
         >
-          {/* Dark overlay (optional cinematic look) */}
           <div className="absolute inset-0 bg-black/40" />
 
           <motion.div
