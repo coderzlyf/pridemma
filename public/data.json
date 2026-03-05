@@ -421,10 +421,20 @@
     "contactUs": {
         "header": "Get In Touch",
         "description": "We're here to help and answer any question you might have. We look forward to hearing from you.",
+        "whatsapp": {
+            "whitefield": "9745775901",
+            "horamavu": "8681059067"
+        },
         "details": [
             {
-                "label": "Phone Number",
+                "label": "Phone Number (Whitefield)",
                 "value": "9745775901",
+                "icon": "call",
+                "text": "Call Us"
+            },
+            {
+                "label": "Phone Number (Horamavu)",
+                "value": "8681059067",
                 "icon": "call",
                 "text": "Call Us"
             },

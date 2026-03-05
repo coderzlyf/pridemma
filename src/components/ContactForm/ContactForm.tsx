@@ -59,14 +59,11 @@ type FormValues = {
   branch: string;
 };
 
-const BRANCH_WHATSAPP: Record<string, string> = {
-  whitefield: "9745775901",
-  horamavu: "8681059067",
-};
-
 const ContactForm = () => {
   const data = useAppSelector((state: any) => state.config.data);
   const contactForm = data?.contactUs;
+
+  const BRANCH_WHATSAPP: Record<string, string> = data?.contactUs.whatsapp;
 
   const handleCopy = (text: string) => {
     if (navigator?.clipboard?.writeText) {
