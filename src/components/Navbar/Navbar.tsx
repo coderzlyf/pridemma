@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useAppSelector, useFreePassRedirect } from "../../hooks";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { trackEvent } from "../../utils/analytics";
 
 const mobileMenuVariants = {
   open: {
@@ -27,6 +28,7 @@ const Navbar = () => {
   const redirectAndContent = () => {
     goToFreePass();
     setIsOpen(false);
+    trackEvent("CTA", "Click", "Get Your Free Pass");
   };
 
   // Hide on scroll down, show on scroll up (optimized)
@@ -105,6 +107,7 @@ const Navbar = () => {
 
             <Link
               to={data?.navigation?.cta?.path}
+              onClick={() => trackEvent("CTA", "Click", "Get Your Free Pass")}
               className="h-10 px-4 flex items-center rounded bg-primary text-white font-bold hover:bg-primary/90"
             >
               {data?.navigation?.cta?.label}

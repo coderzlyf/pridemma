@@ -1,5 +1,7 @@
 import { motion, type Variants } from "framer-motion";
-import { handleFreePass, useAppSelector } from "../../hooks";
+import { useAppSelector } from "../../hooks";
+import { useNavigate } from "react-router-dom";
+import { trackEvent } from "../../utils/analytics";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -22,6 +24,11 @@ const itemVariants: Variants = {
 const BookYourTrial = () => {
   const data = useAppSelector((state: any) => state.config.data);
   const bytAboutUs = data?.aboutUs?.bookYourFreeTrial;
+  const navigate = useNavigate();
+  const handleFreePass = () => {
+    navigate("/GetFreeTrial");
+    trackEvent("CTA", "Click", "Get Your Free Pass");
+  };
   return (
     <motion.div
       variants={containerVariants}
