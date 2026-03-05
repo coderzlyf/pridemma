@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { useAppSelector } from "../../hooks";
+import { handleFreePass, useAppSelector } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 
 const containerVariants: Variants = {
@@ -46,7 +46,7 @@ const BookYourTrial = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 300 }}
-          onClick={() => navigate("/GetFreeTrial")}
+          onClick={handleFreePass}
           className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em]"
         >
           <span className="truncate">{bytAboutUs.button}</span>

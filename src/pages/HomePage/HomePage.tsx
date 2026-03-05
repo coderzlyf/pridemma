@@ -4,6 +4,7 @@ import Philosophy from "../../components/Philosophy/Philosophy";
 import Testimonial from "../../components/Testimonial/Testimonial";
 import Hero from "../../components/Hero/Hero";
 import { useAppSelector } from "../../hooks";
+import { trackEvent } from "../../utils/analytics";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -23,7 +24,10 @@ const HomePage = () => {
         secondaryButton={{
           show: hero.secondary ? true : false,
           text: `${hero.secondary.name}`,
-          onClick: () => navigate(`${hero.secondary.route}`),
+          onClick: () => {
+            navigate(`${hero.secondary.route}`);
+            trackEvent("CTA", "Click", "Get Your Free Pass");
+          },
         }}
       />
       <Philosophy />

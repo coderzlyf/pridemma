@@ -2,6 +2,7 @@ import { motion, type Variants } from "framer-motion";
 import { useAppSelector } from "../../hooks";
 import { useLocation } from "react-router-dom";
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
+import { trackEvent } from "../../utils/analytics";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -55,6 +56,12 @@ type FormValues = {
   number: string;
   subject: string;
   message: string;
+  branch: string;
+};
+
+const BRANCH_WHATSAPP: Record<string, string> = {
+  whitefield: "9745775901",
+  horamavu: "8681059067",
 };
 
 const ContactForm = () => {
@@ -78,13 +85,14 @@ const ContactForm = () => {
   const formRef = useRef<HTMLDivElement>(null);
   const nameInputRef = useRef<HTMLInputElement>(null);
 
-  const WHATSAPP_NUMBER = "9745775901";
+  // const WHATSAPP_NUMBER = "9745775901";
 
   const [formValues, setFormValues] = useState<FormValues>({
     name: "",
     number: "",
     subject: "",
     message: "",
+    branch: "",
   });
 
   const [touched, setTouched] = useState({
@@ -92,6 +100,7 @@ const ContactForm = () => {
     number: false,
     subject: false,
     message: false,
+    branch: false,
   });
 
   const [errors, setErrors] = useState<FormValues>({
@@ -99,6 +108,7 @@ const ContactForm = () => {
     number: "",
     subject: "",
     message: "",
+    branch: "",
   });
 
   const [isValid, setIsValid] = useState(false);
@@ -108,9 +118,15 @@ const ContactForm = () => {
   const validateField = (name: keyof FormValues, value: string) => {
     let error = "";
 
-    if (!value.trim()) {
-      error = `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
-    } else if (name === "number") {
+    if (name === "branch") {
+      if (!value) error = "Please select a branch";
+    } else {
+      if (!value.trim()) {
+        error = `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
+      }
+    }
+
+    if (name === "number" && value) {
       if (!/^[6-9]\d{9}$/.test(value)) {
         error = "Enter a valid 10-digit phone number";
       }
@@ -158,14 +174,19 @@ const ContactForm = () => {
 
   // ---------------- SUBMIT ----------------
 
+  const whatsappNumber = BRANCH_WHATSAPP[formValues.branch];
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    trackEvent("Form", "Submit", "Contact Form");
 
     setTouched({
       name: true,
       number: true,
       subject: true,
       message: true,
+      branch: true,
     });
 
     if (!isValid) return;
@@ -177,10 +198,12 @@ const ContactForm = () => {
         `*Name:* ${formValues.name}\n` +
         `*Number:* ${formValues.number}\n` +
         `*Subject:* ${formValues.subject}\n` +
-        `*Message:* ${formValues.message}`
+        `*Message:* ${formValues.message}\n` +
+        `*Branch:* ${formValues.branch}\n`
     );
 
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    // const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
     window.open(whatsappUrl, "_blank");
 
     // Reset form
@@ -189,6 +212,7 @@ const ContactForm = () => {
       number: "",
       subject: "",
       message: "",
+      branch: "",
     });
 
     setTouched({
@@ -196,6 +220,7 @@ const ContactForm = () => {
       number: false,
       subject: false,
       message: false,
+      branch: false,
     });
   };
 
@@ -467,6 +492,40 @@ const ContactForm = () => {
             />
             {touched.subject && errors.subject && (
               <p className="text-red-500 text-xs mt-1">{errors.subject}</p>
+            )}
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <label className="block text-sm font-medium text-background-dark/70 mb-2">
+              Select Branch
+            </label>
+
+            <div className="relative">
+              <select
+                value={formValues.branch}
+                onChange={(e) => {
+                  setFormValues({ ...formValues, branch: e.target.value });
+                  if (touched.branch) validateField("branch", e.target.value);
+                }}
+                onBlur={() => {
+                  setTouched({ ...touched, branch: true });
+                  validateField("branch", formValues.branch);
+                }}
+                className="w-full appearance-none bg-neutral-50 border border-neutral-200 rounded-md h-12 px-4 pr-10 focus:ring-2 focus:ring-primary focus:border-primary"
+              >
+                <option value="">Select Branch</option>
+                <option value="whitefield">Whitefield</option>
+                <option value="horamavu">Horamavu</option>
+              </select>
+
+              {/* Arrow */}
+              <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500 pointer-events-none">
+                expand_more
+              </span>
+            </div>
+
+            {touched.branch && errors.branch && (
+              <p className="text-red-500 text-xs mt-1">{errors.branch}</p>
             )}
           </motion.div>
 

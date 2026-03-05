@@ -1,6 +1,7 @@
 import { useDispatch, useSelector, type TypedUseSelectorHook } from "react-redux";
 import type { RootState, AppDispatch } from "./store";
 import { useNavigate } from "react-router-dom";
+import { trackEvent } from "./utils/analytics";
 
 type FreePassOptions = {
     subject?: string;
@@ -26,4 +27,10 @@ export const useFreePassRedirect = () => {
     };
   
     return goToFreePass;
+};
+
+export const handleFreePass = () => {
+  const navigate = useNavigate();
+  navigate("/GetFreeTrial");
+  trackEvent("CTA", "Click", "Get Your Free Pass");
 };
