@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import BookYourTrial from "../../components/BookYourTrial/BookYourTrial";
 import Hero from "../../components/Hero/Hero";
 import Mission from "../../components/Mission/Mission";
@@ -11,6 +12,16 @@ const AboutUs = () => {
   const story = data?.aboutUs?.story;
   return (
     <>
+      <Helmet>
+        <title>
+          About Pride MMA | Top MMA & Fitness Gym in Whitefield Bangalore
+        </title>
+
+        <meta
+          name="description"
+          content="Learn about Pride MMA, a leading MMA and fitness gym in Whitefield Bangalore offering professional martial arts training, fitness programs, and expert coaching."
+        />
+      </Helmet>
       <Hero
         title={hero.title}
         description={hero.description}

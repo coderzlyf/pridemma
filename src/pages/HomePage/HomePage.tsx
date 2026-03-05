@@ -5,6 +5,7 @@ import Testimonial from "../../components/Testimonial/Testimonial";
 import Hero from "../../components/Hero/Hero";
 import { useAppSelector } from "../../hooks";
 import { trackEvent } from "../../utils/analytics";
+import { Helmet } from "react-helmet";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -12,6 +13,16 @@ const HomePage = () => {
   const hero = data?.homePage?.hero;
   return (
     <>
+      <Helmet>
+        <title>
+          Best MMA & Fitness Gym in Whitefield Bangalore | Pride MMA
+        </title>
+
+        <meta
+          name="description"
+          content="Join Pride MMA, the best MMA and fitness gym in Whitefield Bangalore. Professional MMA training, strength conditioning, and martial arts classes for beginners and athletes."
+        />
+      </Helmet>
       <Hero
         title={hero.title}
         description={hero.description}
