@@ -1,6 +1,5 @@
 import { motion, type Variants } from "framer-motion";
 import { handleFreePass, useAppSelector } from "../../hooks";
-import { useNavigate } from "react-router-dom";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, scale: 0.96 },
@@ -29,7 +28,6 @@ const itemVariants: Variants = {
 
 const BookYourTrialClasses = () => {
   const data = useAppSelector((state: any) => state.config.data);
-  const navigate = useNavigate();
   const bytc = data?.classes?.bookYourFreeTrial;
   return (
     <motion.div
