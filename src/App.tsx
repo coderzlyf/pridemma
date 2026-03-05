@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { fetchConfig } from "./store/configSlice";
 import { useAppDispatch, useAppSelector } from "./hooks";
 import { useNavigate } from "react-router-dom";
+import { initGA, trackPageView } from "./utils/analytics";
 
 function App() {
   const data = useAppSelector((state: any) => state.config.data);
@@ -15,6 +16,8 @@ function App() {
   useEffect(() => {
     navigate("/");
     dispatch(fetchConfig());
+    initGA();
+    trackPageView(window.location.pathname);
   }, []);
 
   return (

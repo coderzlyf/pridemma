@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import { useAppSelector } from "./hooks";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import PageTracker from "./components/PageTracker/PageTracker";
 
 const componentMap = {
   AboutUs,
@@ -22,6 +23,7 @@ export function AppRoutes() {
   return (
     <>
       <ScrollToTop />
+      <PageTracker />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/GetFreeTrial" element={<ContactUs />} />
