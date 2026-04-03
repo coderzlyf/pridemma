@@ -6,11 +6,12 @@ const ContactUs = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Pride MMA | MMA Gym in Whitefield Bangalore</title>
-
+        <title>
+          Contact Pride MMA | MMA Gym in Horamavu & Whitefield Bangalore
+        </title>
         <meta
           name="description"
-          content="Contact Pride MMA gym in Whitefield Bangalore for MMA training, fitness classes, and membership details. Visit our gym or get in touch with our trainers today."
+          content="Contact Pride MMA for MMA, boxing, fitness, and self-defense training in Bangalore. Visit our Horamavu and Whitefield branches."
         />
       </Helmet>
       <ContactHeader />

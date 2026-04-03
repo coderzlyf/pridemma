@@ -15,12 +15,11 @@ const HomePage = () => {
     <>
       <Helmet>
         <title>
-          Best MMA & Fitness Gym in Whitefield Bangalore | Pride MMA
+          Best MMA & Fitness Gym in Bangalore | Pride MMA Horamavu & Whitefield
         </title>
-
         <meta
           name="description"
-          content="Join Pride MMA, the best MMA and fitness gym in Whitefield Bangalore. Professional MMA training, strength conditioning, and martial arts classes for beginners and athletes."
+          content="Join Pride MMA, one of the best MMA and fitness gyms in Bangalore with branches in Horamavu and Whitefield. Expert coaching in MMA, boxing, fitness, and self-defense."
         />
       </Helmet>
       <Hero

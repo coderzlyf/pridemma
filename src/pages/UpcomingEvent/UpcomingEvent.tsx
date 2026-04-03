@@ -7,12 +7,12 @@ const UpcomingEvent = () => {
     <>
       <Helmet>
         <title>
-          MMA Events & Training Camps in Whitefield Bangalore | Pride MMA
+          MMA Events & Training Camps in Bangalore | Pride MMA Horamavu &
+          Whitefield
         </title>
-
         <meta
           name="description"
-          content="Stay updated with upcoming MMA events, workshops, and training camps at Pride MMA gym in Whitefield Bangalore. Join our community and improve your skills."
+          content="Stay updated with upcoming MMA events, fitness camps, workshops, and training programs at Pride MMA branches in Horamavu and Whitefield Bangalore."
         />
       </Helmet>
       <MainEvent />

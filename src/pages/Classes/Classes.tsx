@@ -12,11 +12,13 @@ const Classes = () => {
   return (
     <>
       <Helmet>
-        <title>MMA & Fitness Classes in Whitefield Bangalore | Pride MMA</title>
-
+        <title>
+          MMA, Boxing & Fitness Classes in Horamavu & Whitefield Bangalore |
+          Pride MMA
+        </title>
         <meta
           name="description"
-          content="Explore MMA, boxing, strength training, and fitness classes at Pride MMA in Whitefield Bangalore. Programs available for beginners, kids, and advanced athletes."
+          content="Explore MMA, boxing, fitness, strength training, and self-defense classes at Pride MMA in Horamavu and Whitefield, Bangalore."
         />
       </Helmet>
       <Hero
