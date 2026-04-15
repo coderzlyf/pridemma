@@ -50,7 +50,7 @@ function App() {
                         <img
                           src="/MatlamLogo.png"
                           alt="matlam"
-                          className="pr-1.5 w-7 font-normal text-slate-700"
+                          className="pr-1 w-7 font-normal text-slate-700"
                         />
                         MatLam
                       </a>
