@@ -40,7 +40,7 @@ function App() {
                   sections={data.footer.section}
                   copyright={`© ${data.footer.year} ${data.footer.brandName}™. All Rights Reserved.`}
                   credits={
-                    <p className="flex items-center gap-1">
+                    <p className="flex items-center justify-center gap-1">
                       Created By{" "}
                       <a
                         href="https://www.matlam.online"
