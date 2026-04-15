@@ -43,6 +43,18 @@ function App() {
                     <>
                       Created By{" "}
                       <a
+                        href="https://www.matlam.online"
+                        target="blank"
+                        className="hover:underline uppercase cursor-pointer flex items-center"
+                      >
+                        <img
+                          src="/MatlamLogo.png"
+                          alt="matlam"
+                          className="pr-1.5"
+                        />
+                        MatLam
+                      </a>
+                      {/* <a
                         target="blank"
                         href={data.footer.founder.url}
                         className="hover:underline uppercase cursor-pointer"
@@ -56,7 +68,7 @@ function App() {
                         className="hover:underline uppercase cursor-pointer"
                       >
                         {data.footer.cofounder.name[0]}
-                      </a>
+                      </a> */}
                     </>
                   }
                 />

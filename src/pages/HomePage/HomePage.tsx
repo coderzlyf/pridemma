@@ -42,7 +42,6 @@ const HomePage = () => {
         }}
       />
       <Philosophy />
-
       <Fyf />
       <Testimonial />
     </>
