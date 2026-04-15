@@ -45,12 +45,12 @@ function App() {
                       <a
                         href="https://www.matlam.online"
                         target="blank"
-                        className="hover:underline uppercase cursor-pointer flex items-center"
+                        className="hover:underline cursor-pointer flex items-center font-bold tracking-tight text-slate-900"
                       >
                         <img
                           src="/MatlamLogo.png"
                           alt="matlam"
-                          className="pr-1.5"
+                          className="pr-1.5 w-7 font-normal text-slate-700"
                         />
                         MatLam
                       </a>
