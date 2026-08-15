@@ -92,7 +92,7 @@ const ClassSchedule = () => {
       </div> */}
       <motion.div
         variants={containerVariants}
-        className=" grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-zinc-200 bg-zinc-200 shadow-sm md:grid-cols-7"
+        className=" grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-zinc-200 bg-zinc-200 shadow-sm md:grid-cols-6"
       >
         {classSchedule.hero.classDetails.map((item: any, key: number) => (
           <div

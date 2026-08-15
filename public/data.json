@@ -227,26 +227,32 @@
                         "day": "Monday",
                         "class": [
                             {
-                                "title": "Striking/MMA",
+                                "title": "Striking",
                                 "time": "6:30 - 8:00 AM",
                                 "coach": "Coach Raj",
                                 "color": "red"
                             },
                             {
-                                "title": "Striking/MMA",
+                                "title": "Striking",
                                 "time": "8:30 - 10:00 AM",
                                 "coach": "Coach Raj",
                                 "color": "red"
                             },
                             {
-                                "title": "Striking/MMA",
+                                "title": "Grappling/MMA",
                                 "time": "5:00 - 6:30 PM",
                                 "coach": "Coach Raj",
                                 "color": "red"
                             },
                             {
-                                "title": "Striking/MMA",
+                                "title": "Grappling/MMA",
                                 "time": "7:00 - 8:30 PM",
+                                "coach": "Coach Raj",
+                                "color": "red"
+                            },
+                            {
+                                "title": "Grappling/MMA",
+                                "time": "8:30 - 10:00 PM",
                                 "coach": "Coach Raj",
                                 "color": "red"
                             }
@@ -256,7 +262,7 @@
                         "day": "Tuesday",
                         "class": [
                             {
-                                "title": "Judo/Wrestling",
+                                "title": "Judo",
                                 "time": "6:30 - 8:00 AM",
                                 "coach": "Coach Sada Shivam",
                                 "color": "blue"
@@ -274,10 +280,16 @@
                                 "color": "green"
                             },
                             {
-                                "title": "Cross-Fit",
+                                "title": "Striking",
                                 "time": "7:00 - 8:30 PM",
                                 "coach": "Coach Naveen",
-                                "color": "green"
+                                "color": "red"
+                            },
+                            {
+                                "title": "Striking",
+                                "time": "8:00 - 10:00 PM",
+                                "coach": "Coach Raj",
+                                "color": "red"
                             }
                         ]
                     },
@@ -285,28 +297,34 @@
                         "day": "Wednesday",
                         "class": [
                             {
-                                "title": "BJJ/Grappling",
+                                "title": "Grappling/MMA",
                                 "time": "6:30 - 8:00 AM",
                                 "coach": "Coach Raj",
-                                "color": "blue"
+                                "color": "red"
                             },
                             {
-                                "title": "BJJ/Grappling",
+                                "title": "Grappling/MMA",
                                 "time": "8:30 - 10:00 AM",
                                 "coach": "Coach Raj",
-                                "color": "blue"
+                                "color": "red"
                             },
                             {
-                                "title": "BJJ/Grappling",
+                                "title": "Striking",
                                 "time": "5:00 - 6:30 PM",
                                 "coach": "Coach Raj",
-                                "color": "blue"
+                                "color": "red"
                             },
                             {
-                                "title": "BJJ/Grappling",
+                                "title": "Striking",
                                 "time": "7:00 - 8:30 PM",
                                 "coach": "Coach Raj",
-                                "color": "blue"
+                                "color": "red"
+                            },
+                            {
+                                "title": "Striking",
+                                "time": "8:30 - 10:00 PM",
+                                "coach": "Coach Raj",
+                                "color": "red"
                             }
                         ]
                     },
@@ -314,28 +332,34 @@
                         "day": "Thursday",
                         "class": [
                             {
-                                "title": "Strength & Conditioning",
+                                "title": "Cross-Fit",
                                 "time": "6:30 - 8:00 AM",
                                 "coach": "Coach Naveen",
                                 "color": "green"
                             },
                             {
-                                "title": "Strength & Conditioning",
+                                "title": "Cross-Fit",
                                 "time": "8:30 - 10:00 AM",
                                 "coach": "Coach Naveen",
                                 "color": "green"
                             },
                             {
-                                "title": "Strength & Conditioning",
+                                "title": "Cross-Fit",
                                 "time": "5:00 - 6:30 PM",
                                 "coach": "Coach Naveen",
                                 "color": "green"
                             },
                             {
-                                "title": "Judo/Wrestling",
+                                "title": "Judo",
                                 "time": "7:00 - 8:30 PM",
                                 "coach": "Coach Sada Shivam",
                                 "color": "blue"
+                            },
+                            {
+                                "title": "Cross-Fit",
+                                "time": "8:30 - 10:00 PM",
+                                "coach": "Coach Naveen",
+                                "color": "green"
                             }
                         ]
                     },
@@ -343,27 +367,33 @@
                         "day": "Friday",
                         "class": [
                             {
-                                "title": "MMA",
+                                "title": "Striking",
                                 "time": "6:30 - 8:00 AM",
                                 "coach": "Coach Raj",
                                 "color": "red"
                             },
                             {
-                                "title": "MMA",
+                                "title": "Striking",
                                 "time": "8:30 - 10:00 AM",
                                 "coach": "Coach Raj",
                                 "color": "red"
                             },
                             {
-                                "title": "MMA",
+                                "title": "Grappling/MMA",
                                 "time": "5:00 - 6:30 PM",
                                 "coach": "Coach Raj",
                                 "color": "red"
                             },
                             {
-                                "title": "MMA",
+                                "title": "Grappling/MMA",
                                 "time": "7:00 - 8:30 PM",
                                 "coach": "Coach Raj",
+                                "color": "red"
+                            },
+                            {
+                                "title": "Grappling/MMA",
+                                "time": "8:30 - 10:00 PM",
+                                "coach": "Coach Naveen",
                                 "color": "red"
                             }
                         ]
@@ -372,27 +402,16 @@
                         "day": "Saturday",
                         "class": [
                             {
-                                "title": "Outdoor session/S&C",
-                                "time": "7:00 - 8:30 AM",
+                                "title": "Open Mat",
+                                "time": "8:00 - 9:30 AM",
                                 "coach": "Coach Naveen",
                                 "color": "green"
                             },
                             {
-                                "title": "S&C/HIIT",
+                                "title": "Open Mat",
                                 "time": "6:00 PM - 7:30 PM",
                                 "coach": "Coach Naveen",
                                 "color": "green"
-                            }
-                        ]
-                    },
-                    {
-                        "day": "Sunday",
-                        "class": [
-                            {
-                                "title": "Yoga/Seminar",
-                                "time": "6:00 PM - 7:30 PM",
-                                "coach": "Coach Naveen",
-                                "color": "purple"
                             }
                         ]
                     }
@@ -425,13 +444,13 @@
         "header": "Get In Touch",
         "description": "We're here to help and answer any question you might have. We look forward to hearing from you.",
         "whatsapp": {
-            "whitefield": "7975433887",
+            "whitefield": "8904348640",
             "horamavu": "9035547892"
         },
         "details": [
             {
                 "label": "Phone Number (Whitefield)",
-                "value": "7975433887",
+                "value": "8904348640",
                 "icon": "call",
                 "text": "Call Us"
             },
