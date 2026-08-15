@@ -19,11 +19,6 @@
                 "component": "Membership"
             },
             {
-                "name": "Upcoming Event",
-                "path": "/upcomingEvent",
-                "component": "UpcomingEvent"
-            },
-            {
                 "name": "Contact Us",
                 "path": "/contactus",
                 "component": "ContactUs"
