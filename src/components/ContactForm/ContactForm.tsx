@@ -200,7 +200,7 @@ const ContactForm = () => {
     );
 
     // const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
+    const whatsappUrl = `https://wa.me/91${whatsappNumber}?text=${text}`;
     window.open(whatsappUrl, "_blank");
 
     // Reset form
